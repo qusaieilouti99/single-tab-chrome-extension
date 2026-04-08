@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "OneTab Guard",
+  "version": "1.0.0",
+  "description": "Prevent duplicate tabs — redirect to an existing tab when the same domain is already open.",
+  "permissions": ["tabs", "storage"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "OneTab Guard"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}

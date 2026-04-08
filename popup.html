@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OneTab Guard</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+
+  <!-- ── Header ── -->
+  <header class="header">
+    <div class="header-brand">
+      <div class="brand-icon">1</div>
+      <div class="brand-text">
+        <span class="brand-name">OneTab Guard</span>
+        <span class="brand-sub" id="statusLabel">Active</span>
+      </div>
+    </div>
+    <label class="toggle" title="Enable / Disable extension">
+      <input type="checkbox" id="masterToggle" />
+      <span class="slider"></span>
+    </label>
+  </header>
+
+  <!-- ── Settings Panel ── -->
+  <section class="panel" id="settingsPanel">
+
+    <!-- Mode -->
+    <div class="setting-row">
+      <div class="setting-meta">
+        <span class="setting-title">Mode</span>
+        <span class="setting-hint" id="modeHint"></span>
+      </div>
+      <div class="chip-group" id="modeGroup">
+        <button class="chip" data-value="all">All Domains</button>
+        <button class="chip" data-value="whitelist">Whitelist Only</button>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Match -->
+    <div class="setting-row">
+      <div class="setting-meta">
+        <span class="setting-title">Match by</span>
+        <span class="setting-hint" id="matchHint"></span>
+      </div>
+      <div class="chip-group" id="matchGroup">
+        <button class="chip" data-value="hostname">Hostname</button>
+        <button class="chip" data-value="fullurl">Full URL</button>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ── Tab Bar ── -->
+  <nav class="tab-bar" id="tabBar">
+    <button class="tab-btn active" data-tab="whitelist">
+      <span class="tab-dot dot-whitelist"></span>
+      <span class="tab-label">Whitelist</span>
+      <span class="tab-badge" id="whitelistBadge">0</span>
+    </button>
+    <button class="tab-btn" data-tab="blacklist">
+      <span class="tab-dot dot-blacklist"></span>
+      <span class="tab-label">Blacklist</span>
+      <span class="tab-badge" id="blacklistBadge">0</span>
+    </button>
+  </nav>
+
+  <!-- ── List Panel ── -->
+  <section class="list-panel" id="listPanel">
+
+    <p class="list-hint" id="listHint"></p>
+
+    <!-- Add Row -->
+    <div class="add-row">
+      <input
+        type="text"
+        id="domainInput"
+        class="domain-input"
+        placeholder="web.whatsapp.com"
+        autocomplete="off"
+        spellcheck="false"
+      />
+      <button class="add-btn" id="addBtn">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+          <path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        Add
+      </button>
+    </div>
+
+    <!-- Inline error -->
+    <p class="error-msg" id="errorMsg"></p>
+
+    <!-- Domain list -->
+    <ul class="domain-list" id="domainList"></ul>
+
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer class="footer">
+    <span id="footerText"></span>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>
