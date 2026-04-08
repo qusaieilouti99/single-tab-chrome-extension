@@ -112,53 +112,6 @@ background.js (chrome.tabs.onUpdated)
 
 ---
 
-## Publishing to the Chrome Web Store
-
-### 1. Create a ZIP
-
-```bash
-# From inside the project folder
-zip -r onetab-guard.zip manifest.json background.js popup.html popup.css popup.js
-```
-
-> Do **not** include `.git/`, `node_modules/`, or `docs/` in the ZIP.
-
-### 2. Register as a Chrome Web Store Developer
-
-- Go to the [Chrome Web Store Developer Dashboard](https://chrome.google.com/webstore/devconsole/)
-- Sign in with a Google account
-- Pay the **one-time $5 developer registration fee**
-
-### 3. Create a new item
-
-1. Click **"New Item"**
-2. Upload the `onetab-guard.zip` file
-
-### 4. Fill in the store listing
-
-| Field | Suggested value |
-|---|---|
-| **Name** | OneTab Guard |
-| **Short description** | Prevent duplicate tabs — focus the existing tab instead of opening a new one |
-| **Category** | Productivity |
-| **Language** | English |
-| **Screenshots** | At least one 1280×800 or 640×400 screenshot of the popup |
-| **Small tile icon** | 128×128 PNG |
-
-### 5. Set privacy & permissions
-
-- Justify the `tabs` permission: *"Required to read open tab URLs and close duplicate tabs"*
-- Justify the `storage` permission: *"Required to persist whitelist, blacklist, and settings across sessions"*
-- No remote code is executed — all logic is self-contained
-
-### 6. Submit for review
-
-- Click **"Submit for review"**
-- Google typically reviews extensions within **1–3 business days**
-- You'll receive an email when it's approved or if changes are needed
-
----
-
 ## Permissions
 
 | Permission | Why it's needed |
